@@ -51,14 +51,15 @@ Use the sliders to select the severity of each symptom, and add optional notes o
 # Container for input data
 input_data = {}
 
-# Function to add symptoms with sliders and text inputs
+# Function to add symptoms with sliders and conditional text inputs
 def add_symptom_inputs(symptom_list, category_name):
     st.header(category_name)
     for symptom in symptom_list:
-        col1, col2 = st.columns([1, 3])
-        with col1:
-            severity = st.slider(f"{symptom}", 0, 4, 0, format="%d", key=f"{symptom}_slider")
-        with col2:
+        # Slider for severity
+        severity = st.slider(f"{symptom}", 0, 4, 0, format="%d", key=f"{symptom}_slider")
+        # Conditional text input if severity is greater than 0
+        notes = ""
+        if severity > 0:
             notes = st.text_input(f"Notes for {symptom}", "", key=f"{symptom}_notes")
         input_data[symptom] = {"Severity": severity, "Notes": notes}
 
