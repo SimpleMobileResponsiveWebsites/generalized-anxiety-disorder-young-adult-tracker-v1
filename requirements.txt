@@ -1,2 +1,3 @@
-streamlit==1.25.0
-pandas==1.5.3
+streamlit==1.25.0  # Streamlit for creating the dashboard interface
+pandas==2.1.1      # Pandas for data manipulation
+plotly==5.17.0     # Plotly for interactive charts and visualizations
